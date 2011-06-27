@@ -1,0 +1,11 @@
+{
+  "name": "Ruby on Rails",
+  "description": "Workshop",
+  "sections": [
+    {"section":"intro"},
+    {"section":"ruby-install"},
+    {"section":"ruby"},
+    {"section":"rails"},
+    {"section":"rails-app"}
+  ]
+}
