@@ -13,6 +13,10 @@
 * rails app
 * gems
 
+!SLIDE subsection
+
+# Intro #
+
 !SLIDE bullets
 
 # Language vs Framework #

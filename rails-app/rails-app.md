@@ -174,7 +174,7 @@
 
 !SLIDE
 
-## The root url ##
+# The root url #
 
 !SLIDE commandline
 
@@ -194,7 +194,7 @@
 
 !SLIDE
 
-## Validations ##
+# Validations #
 
 !SLIDE code
 
@@ -287,10 +287,6 @@
 !SLIDE
 
 # Adding a drop-down #
-
-!SLIDE center
-
-![dropdown](dropdown.png)
 
 !SLIDE code
 
