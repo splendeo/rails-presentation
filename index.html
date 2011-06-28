@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Ruby on Rails</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+    <link rel="stylesheet" href="file/something.css" type="text/css"/>
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div class="buttonNav">
+  <input type="submit" onClick="prevStep();" value="prev"/>
+  <input type="submit" onClick="nextStep();" value="next"/>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+  <span id="notesInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content title-slide" ref="intro/intro/1">
+<h1>Ruby on Rails</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/intro/2">
+<h1>Sections</h1>
+
+<ul>
+<li>intro</li>
+<li>installing ruby</li>
+<li>ruby</li>
+<li>rails</li>
+<li>rails app</li>
+<li>gems</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="intro/intro/3">
+<h1>Intro</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/intro/4">
+<h1>Language vs Framework</h1>
+
+<ul>
+<li>Ruby = Language</li>
+<li>Rails = Framework</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="intro/intro/5">
+<h1>Language vs Framework</h1>
+
+<ul>
+<li>Ruby ~ PHP / Java / C#</li>
+<li>Rails ~ Trax / Struts / ?</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="ruby-install/ruby-install/1">
+<h1>Installing Ruby</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby-install/ruby-install/2">
+<h1>rvm</h1>
+
+<ul>
+<li>"Ruby Version Manager"</li>
+<li>Mac &amp; Ubuntu</li>
+<li><a href="https://rvm.beginrescueend.com/">https://rvm.beginrescueend.com/</a></li>
+<li>Follow instructions to install ruby 1.9.2</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby-install/ruby-install/3">
+<h1>rubyinstaller</h1>
+
+<ul>
+<li>For windows</li>
+<li><a href="http://rubyinstaller.org">http://rubyinstaller.org</a></li>
+<li>Download and install ruby 1.9.2</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="ruby/ruby/1">
+<h1>Ruby</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/2">
+<h1>Several environments</h1>
+
+<ul>
+<li>1.8.7 - legacy</li>
+<li>1.9.2 - standard</li>
+<li>jRuby - jvm</li>
+<li>rubinious</li>
+<li>...</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets commandline" ref="ruby/ruby/3">
+<h1>Interactive Ruby</h1>
+
+<ul>
+<li>*nix  : <code>irb</code></li>
+<li>windows: <code>fxri</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="ruby/ruby/4">
+<pre><code><code class="command">$irb(main):001:0&gt; "Hello World"</code><code class="result">
+=&gt; "Hello World"
+
+</code><code class="command">$irb(main):001:0&gt; 1+1</code><code class="result">
+=&gt; 2
+
+</code><code class="command">$irb(main):001:0&gt; puts("Hello World")</code><code class="result">
+"Hello World"
+=&gt; nil
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/5">
+<h1>Ruby has <strong>conventions</strong></h1>
+
+<ul>
+<li>Programmer-enforced Rules</li>
+<li><em>Not</em> compiler-enforced</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/6">
+<h1>Convention: Indentation</h1>
+
+<ul>
+<li>Always two spaces</li>
+<li>No tabs</li>
+<li>No discussion</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/7">
+<h1>Convention: Names</h1>
+
+<ul>
+<li>Class names are <code>CamelCased</code></li>
+<li>Constants are <code>ALL_CAPS_WITH_UNDERSCORES</code>*</li>
+<li>Everything else is <code>under_scored</code></li>
+</ul>
+
+
+<p>* Not entirely true</p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/8">
+<h1>Object Oriented</h1>
+
+<pre class="sh_ruby"><code>class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def speak()
+    puts("Hi, I am #{@name}")
+  end
+
+end
+
+peter = Person.new("Peter")
+peter.speak() # Hi, I am Peter</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/9">
+<h1>Inheritance</h1>
+
+<pre class="sh_ruby"><code>class Employee &lt; Person
+
+  def initialize(name, salary)
+    super(name)
+    @salary = salary
+  end
+
+end
+
+michael = Employee.new("Michael", 10000)
+michael.speak() # Hi, I am Michael</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/10">
+<h1>Optional parenthesis</h1>
+
+<h2>(most of the time)</h2>
+
+<pre class="sh_ruby"><code>sam = Employee.new("Sam", 30000)
+sam.speak()
+
+# same result:
+sam = Employee.new "Sam", 30000
+sam.speak</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/11">
+<h1><em>Everything</em> is an object</h1>
+
+<pre class="sh_ruby"><code>1.next         # 2
+-15.abs        # 15
+"hello".length # 5
+
+# Lots of stuff built-in:
+
+1.methods.count  # 130
+"".methods.count # 160</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/12">
+<h1><code>nil</code> and <code>false</code></h1>
+
+<ul>
+<li>The only "falsy" values</li>
+<li>They are also objects</li>
+<li>Everything else is "truthy"</li>
+<li><code>if(0), if("")</code> =&gt; truthy</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="ruby/ruby/13">
+<pre class="sh_ruby"><code>if x &lt; 0
+  puts "negative"
+elsif x == 0 # &lt;- not "elseif"!
+  puts "zero"
+else
+  puts "positive"
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/14">
+<h1>Convention: Question mark</h1>
+
+<h2>On methods returning only <code>true</code> or <code>false</code></h2>
+
+<pre class="sh_ruby"><code>17.even?   # false
+"".empty?  # true
+obj.nil?   # true if obj == nil</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/15">
+<h1>Convention: Excl. mark</h1>
+
+<h2>On <em>state-modifying <strong>versions</strong> of methods</em></h2>
+
+<pre class="sh_ruby"><code>str = "Hello"
+other = str.upcase # doesn't modify str
+
+puts(str)   # Hello
+puts(other) # HELLO
+
+str.upcase! # modifies str
+puts(str)   # HELLO</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/16">
+<h1>Arrays</h1>
+
+<pre class="sh_ruby"><code>
+array = [ 1, 2, 3, "catorce" ]
+
+array[4] # returns "catorce"
+array[4] = 4
+array[4] # returns 4</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/17">
+<h1>Parsing an array with <code>each</code></h1>
+
+<pre class="sh_ruby"><code>
+[ 1, 2, 3, 4 ].each do |n|
+  puts(n)
+end
+
+# or
+
+[ 1, 2, 3, 4 ].each{ |n| puts(n) }</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/18">
+<h1><code>String</code> vs <code>Symbol</code></h1>
+
+<pre class="sh_ruby"><code>string = "hello"
+symbol = :hello
+
+string != symbol      # not equal
+string == symbol.to_s # unless converted</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/19">
+<h1><code>String</code> vs <code>Symbol</code> (II)</h1>
+
+<ul>
+<li><code>String</code>: <em>text that changes</em>, ex. db text fields.</li>
+<li><code>Symbol</code>: <em>text that identifes</em>, ex. "enums"</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/20">
+<h1>Hashes</h1>
+
+<ul>
+<li>Can use anything as keys/values</li>
+<li>Frequently use symbols for keys</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/21">
+<pre class="sh_ruby"><code>
+properties = {
+  :name =&gt; "number_of_dwarves",
+  :value =&gt; 7
+}
+
+properties[:name]      # "number_of_dwarves"
+properties[:value]     # 7
+properties[:value] = 6 # a dwarf died
+properties[:value]     # returns 6</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="ruby/ruby/22">
+<h1>Hash.each</h1>
+
+<pre class="sh_ruby"><code>
+hash = { :a =&gt; 1, :b =&gt; 2 }
+
+hash.each do |k, val|
+  puts("#{k} =&gt; #{val}")
+end
+
+# or
+
+hash.each{ |k, val| puts("#{k} =&gt; #{val}") }</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/23">
+<h1>Hashes &amp; parents</h1>
+
+<pre class="sh_ruby"><code>class Foo
+  def my_method(x,y, options = {})
+  ...
+  end
+end
+
+foo = Foo.new
+
+# equivalent:
+foo.my_method(1, 2, {:color =&gt; :white})
+foo.my_method 1, 2, {:color =&gt; :white}
+foo.my_method(1, 2, :color =&gt; :white)
+foo.my_method 1, 2, :color =&gt; :white</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="ruby/ruby/24">
+<h1>gems</h1>
+
+<ul>
+<li>Gems are Ruby's "Libraries"</li>
+<li>Manageable through the <code>gem</code> command</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="ruby/ruby/25">
+<pre><code><code class="command">$ gem install gem_name</code><code class="result">
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="ruby/ruby/26">
+<h1>Questions?</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="rails/rails/1">
+<h1>Rails</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/2">
+<h1>Concepts</h1>
+
+<ul>
+<li>Model</li>
+<li>View</li>
+<li>Controller</li>
+<li>Migration</li>
+<li>Route</li>
+<li>Scaffolding</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/3">
+<h1>Model</h1>
+
+<ul>
+<li>~ db information + business logic</li>
+<li>Usually mapped to a db table</li>
+<li>Employee, Company, Player, Article</li>
+<li>Located in <code>app/models</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/4">
+<h1>View</h1>
+
+<ul>
+<li>~ html + css; user interface</li>
+<li>Reusability: helpers and layouts</li>
+<li>Connected to the controller</li>
+<li>Located in <code>app/views</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/5">
+<h1>Controller</h1>
+
+<ul>
+<li>~ CRUD actions on models</li>
+<li>Sends / receives information from views</li>
+<li><code>params</code> variable =&gt; hashed parameters</li>
+<li>Located in <code>app/controllers</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/6">
+<h1>Migration</h1>
+
+<ul>
+<li>Ruby code that modifies the DB structure</li>
+<li>Controlled via the <code>rake db:xxx</code> commands</li>
+<li>Located in <code>db/migrate</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/7">
+<h1>Routes</h1>
+
+<ul>
+<li>Translates urls into controller actions</li>
+<li>Located in <code>db/config/routes.rb</code></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails/rails/8">
+<h1>Scaffolding</h1>
+
+<ul>
+<li>Boilerplate MVC+migration code</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="rails-app/rails-app/1">
+<h1>Rails App</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/2">
+<h1>Install rails</h1>
+
+<pre><code><code class="command">$ gem install rails</code><code class="result">
+
+</code><code class="command">$ gem install sqlite3</code><code class="result">
+
+</code><code class="command">$ &lt;ubuntu&gt; sudo apt-get install sqlite3</code><code class="result">
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/3">
+<h1>Create a rails app</h1>
+
+<pre><code><code class="command">$ rails new to_do</code><code class="result">
+
+  create  README
+  create  Rakefile
+  ...
+  create  vendor/plugins/
+  create  vendor/plugins/.gitkeep
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/4">
+<h1>Launch the site</h1>
+
+<pre><code><code class="command">$ cd to_do</code><code class="result">
+
+</code><code class="command">$ rails s</code><code class="result">
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/5">
+<pre><code>.
+&#x251C;&#x2500;&#x2500; app
+&#x2502;   &#x251C;&#x2500;&#x2500; models
+&#x2502;   &#x251C;&#x2500;&#x2500; views
+&#x2502;   &#x251C;&#x2500;&#x2500; controllers
+&#x2502;   &#x2514;&#x2500;&#x2500; ...
+&#x251C;&#x2500;&#x2500; config
+&#x251C;&#x2500;&#x2500; db
+&#x2502;   &#x2514;&#x2500;&#x2500; migrate
+&#x251C;&#x2500;&#x2500; public
+&#x2502;   &#x251C;&#x2500;&#x2500; images
+&#x2502;   &#x251C;&#x2500;&#x2500; javascripts
+&#x2502;   &#x2514;&#x2500;&#x2500; stylesheets
+&#x2514;&#x2500;&#x2500; ...
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/6">
+<h1>Project Scaffolding</h1>
+
+<pre><code><code class="command">$ rails g scaffold Project name:string</code><code class="result">
+
+  create    db/migrate/20110627160358_create_projects.rb
+  create    app/models/project.rb
+  ...
+  route  resources :projects
+  ...
+  create    app/controllers/projects_controller.rb
+  ...
+  create      app/views/projects
+  create      app/views/projects/index.html.erb
+  create      app/views/projects/edit.html.erb
+  create      app/views/projects/show.html.erb
+  create      app/views/projects/new.html.erb
+  create      app/views/projects/_form.html.erb
+  ...
+  create    public/stylesheets/scaffold.css
+  ...
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/7">
+<h1>Run migrations!</h1>
+
+<pre><code><code class="command">$ rake db:migrate</code><code class="result">
+
+  ==  CreateProjects: migrating =================================================
+  -- create_table(:projects)
+     -&gt; 0.0026s
+  ==  CreateProjects: migrated (0.0027s) ========================================
+
+Creates a table with 4 fields: id, name, created_at &amp; updated_at
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails-app/rails-app/8">
+<h1>Interact with your projects</h1>
+
+<ul>
+<li><code>rails s</code></li>
+<li>http://localhost:8080/projects</li>
+<li>Create 3 projects.</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/9">
+<h1>Interact with your projects(II)</h1>
+
+<pre><code><code class="command">$ rails c</code><code class="result">
+Loading development environment (Rails 3.0.7)
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p1 = Project.new</code><code class="result">
+ =&gt; #&lt;Project id: nil, name: nil, created_at: nil, updated_at: nil&gt; 
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p1.name = "New project"</code><code class="result">
+ =&gt; "hello"
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p1.save</code><code class="result">
+ =&gt; true
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p2 = Project.new(:name =&gt; "Initialized project")</code><code class="result">
+ =&gt; #&lt;Project id: nil, name: "Thank you", created_at: nil, updated_at: nil&gt;
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p2.save</code><code class="result">
+ =&gt; true
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p3 = Project.create(:name =&gt; "Saved project")</code><code class="result">
+ =&gt; #&lt;Project id: 2, name: "Saved project", created_at: "2011-06-28 12:55:40", updated_at: "2011-06-28 12:55:40"&gt; 
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/10">
+<h1>Generated files</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/11">
+<pre class="sh_ruby"><code># db/migrate/...create_projects.rb
+class CreateProjects &lt; ActiveRecord::Migration
+  def self.up
+    create_table :projects do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :projects
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/12">
+<pre class="sh_ruby"><code># app/controllers/projects_controller.rb
+class ProjectsController &lt; ApplicationController
+
+  # index, show, new, create
+  # edit, update, &amp; destroy
+
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/13">
+<h2>app/views/projects/</h2>
+
+<pre><code>.
+&#x251C;&#x2500;&#x2500; edit.html.erb
+&#x251C;&#x2500;&#x2500; _form.html.erb
+&#x251C;&#x2500;&#x2500; index.html.erb
+&#x251C;&#x2500;&#x2500; new.html.erb
+&#x2514;&#x2500;&#x2500; show.html.erb
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/14">
+<pre class="sh_ruby"><code># config/routes.rb
+Todo::Application.routes.draw do
+  resources :projects
+...
+end
+
+
+# app/models/project.rb
+class Project &lt; ActiveRecord::Base
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/15">
+<h1>The root url</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/16">
+<pre><code><code class="command">$rm public/index.html</code><code class="result">
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/17">
+<pre class="sh_ruby"><code># config/routes.rb
+
+...
+# root :to =&gt; "welcome#index"
+...
+
+root :to =&gt; "projects#index"</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/18">
+<h1>Validations</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/19">
+<pre class="sh_ruby"><code>class Project &lt; ActiveRecord::Base
+  # add these two lines
+  validates_presence_of :name
+  validates_uniqueness_of :name
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="rails-app/rails-app/20">
+<h1>Try to create a project</h1>
+
+<ul>
+<li>Without name</li>
+<li>or</li>
+<li>With an already taken name</li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/21">
+<h1>Task scaffolding</h1>
+
+<pre><code><code class="command">$ rails g scaffold Task name:string project_id:integer done:boolean</code><code class="result">
+...
+</code><code class="command">$ rake db:migrate</code><code class="result">
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/22">
+<h1><code>has_many</code> &amp; <code>belongs_to</code></h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/23">
+<pre class="sh_ruby"><code># app/models/project.rb
+class Project &lt; ActiveRecord::Base
+  ...
+  # add this line:
+  has_many :tasks
+end
+
+# app/models/task.rb
+class Task &lt; ActiveRecord::Base
+  # add this line:
+  belongs_to :project
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/24">
+<h1><code>has_many</code></h1>
+
+<pre><code><code class="command">$ rails c</code><code class="result">
+Loading development environment (Rails 3.0.7)
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p = Project.first</code><code class="result">
+ =&gt; #&lt;Project id: 1, name: 'foo', created_at: nil, updated_at: nil&gt;
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p.tasks</code><code class="result">
+ =&gt; []
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p.tasks.create(:name =&gt; "Clean dishes")</code><code class="result">
+ =&gt; #&lt;Task id: 1, name: "Clean dishes", project_id: 1, done: false, ...
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p.tasks.create(:name =&gt; "Take dog out")</code><code class="result">
+ =&gt; #&lt;Task id: 2, name: "Take dog out", project_id: 1, done: false, ...
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; p.tasks.count</code><code class="result">
+ =&gt; 2
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content commandline" ref="rails-app/rails-app/25">
+<h1><code>belongs_to</code></h1>
+
+<pre><code><code class="command">$ ruby-1.9.2-p0 &gt; t = Tasks.find(2)</code><code class="result">
+ =&gt; #&lt;Task id: 2, name: "Take dog out", project_id: 1, done: false, ...
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; t.project_id</code><code class="result">
+ =&gt; 1
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; t.project</code><code class="result">
+ =&gt; #&lt;Project id: 1, name: 'foo', created_at: nil, updated_at: nil&gt;
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; t.project_id = 2</code><code class="result">
+ =&gt; 2
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; t.save</code><code class="result">
+ =&gt; true
+
+</code><code class="command">$ ruby-1.9.2-p0 &gt; t.project</code><code class="result">
+ =&gt; #&lt;Project id: 2, name: 'bar', created_at: nil, updated_at: nil&gt;
+</code></code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/26">
+<h1>Adding a drop-down</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/27">
+<pre class="sh_ruby"><code># app/controllers/tasks_controller.rb
+
+class TasksController &lt; ApplicationController
+  before_filter :calculate_projects
+
+  ...
+
+  private
+
+  def calculate_projects
+    @projects = Project.all
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/28">
+<pre class="sh_ruby"><code># app/controllers/tasks_controller.rb
+
+class TasksController &lt; ApplicationController
+  before_filter :calculate_projects,
+    :only =&gt; [:new, :create, :edit, :update]
+
+  ...
+
+  private
+
+  def calculate_projects
+    @projects = Project.all
+  end
+end</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/29">
+<h2>app/views/tasks/_form.rb</h2>
+
+<pre class="sh_ruby"><code>
+&lt;%= f.text_field :project_id %&gt;
+
+# change that to this VVVVVV
+
+&lt;%= f.collection_select :project_id, @projects,
+    :id, :name, :include_blank =&gt; true
+%&gt;</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="rails-app/rails-app/30">
+<h1>Showing the tasks</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/31">
+<pre><code># app/models/task.rb
+
+class Task &lt; ActiveRecord::Base
+
+...
+
+  def status
+    if self.done
+      return "done"
+    else
+      return "not done"
+    end
+  end
+
+end
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/32">
+<pre><code># app/models/task.rb
+
+class Task &lt; ActiveRecord::Base
+
+...
+
+  def status
+    return self.done ? "done" : "not done"
+  end
+
+end
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/33">
+<pre><code># app/models/task.rb
+
+class Task &lt; ActiveRecord::Base
+
+...
+
+  def status
+    return done ? "done" : "not done"
+  end
+
+end
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/34">
+<pre><code># app/models/task.rb
+
+class Task &lt; ActiveRecord::Base
+
+...
+
+  def status
+    done ? "done" : "not done"
+  end
+
+end
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content code" ref="rails-app/rails-app/35">
+<pre><code># app/views/projects/show.html.erb
+
+&lt;p&gt;
+  &lt;b&gt;Name:&lt;/b&gt;
+  &lt;%= @project.name %&gt;
+&lt;/p&gt;
+
+&lt;!-- add this: --&gt;
+&lt;ul&gt;
+  &lt;% @project.tasks.each do |task| %&gt;
+    &lt;li&gt;&lt;%= task.name %&gt;: &lt;%= task.status %&gt;&lt;/li&gt;
+  &lt;% end %&gt;
+&lt;/ul&gt;
+
+...
+</code></pre>
+</div>
+</div><div class="slide" data-transition="none"><div class="content subsection" ref="gems/gems/1">
+<h1>Gems</h1>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="gems/gems/2">
+<h1>Free Resources</h1>
+
+<ul>
+<li><a href="http://rubykoans.com">rubykoans.org</a></li>
+<li><a href="http://ruby-toolbox.com/">ruby-toolbox.com</a></li>
+<li><a href="http://railscasts.com/">railscasts.com</a></li>
+<li><a href="http://stackoverflow.com/">stackoverflow.com</a></li>
+<li><a href="http://github.com/">github.com</a> / <a href="http://progit.org/">progit.org</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="gems/gems/3">
+<h1>Non-Free Resources</h1>
+
+<ul>
+<li><a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104/">Eloquent Ruby</a></li>
+<li><a href="http://tr3w.com/">The rails 3 way</a></li>
+<li><a href="http://pragprog.com/titles/achbd/the-rspec-book">The RSpec Book</a></li>
+</ul>
+
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="gems/gems/4">
+<h1>Questions?</h1>
+</div>
+</div>
+</div>
+
+</body>
+</html>
