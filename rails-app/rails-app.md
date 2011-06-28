@@ -8,6 +8,11 @@
 
     $ gem install rails
 
+    $ gem install sqlite3
+    
+    $ <ubuntu> sudo apt-get install sqlite3
+
+
 !SLIDE commandline
 
 # Create a rails app #
@@ -32,17 +37,17 @@
 
     .
     ├── app
-    │   ├── models
-    │   ├── views
-    │   ├── controllers
-    │   └── ...
+    │   ├── models
+    │   ├── views
+    │   ├── controllers
+    │   └── ...
     ├── config
     ├── db
-    │   └── migrate
+    │   └── migrate
     ├── public
-    │   ├── images
-    │   ├── javascripts
-    │   └── stylesheets
+    │   ├── images
+    │   ├── javascripts
+    │   └── stylesheets
     └── ...
 
 !SLIDE commandline
@@ -87,14 +92,36 @@
 # Interact with your projects #
 
 * `rails s`
-* localhost:8080/projects
+* http://localhost:8080/projects
 * Create 3 projects.
+
+!SLIDE commandline
+
+# Interact with your projects(II) #
+
+    $ rails c
+    Loading development environment (Rails 3.0.7)
+    $ ruby-1.9.2-p0 > p1 = Project.new
+     => #<Project id: nil, name: nil, created_at: nil, updated_at: nil> 
+    $ ruby-1.9.2-p0 > p1.name = "New project"
+     => "hello"
+    $ ruby-1.9.2-p0 > p1.save
+     => true
+    $ ruby-1.9.2-p0 > p2 = Project.new(:name => "Initialized project")
+     => #<Project id: nil, name: "Thank you", created_at: nil, updated_at: nil>
+    $ ruby-1.9.2-p0 > p2.save
+     => true
+    $ ruby-1.9.2-p0 > p3 = Project.create(:name => "Saved project")
+     => #<Project id: 2, name: "Saved project", created_at: "2011-06-28 12:55:40", updated_at: "2011-06-28 12:55:40"> 
+
+!SLIDE
+
+# Generated files #
 
 !SLIDE code
 
-## db/migrate/...projects.rb ##
-
     @@@ ruby
+    # db/migrate/...create_projects.rb
     class CreateProjects < ActiveRecord::Migration
       def self.up
         create_table :projects do |t|
@@ -111,13 +138,12 @@
 
 !SLIDE code
 
-## app/controllers/projects_controller.rb ##
-
     @@@ ruby
+    # app/controllers/projects_controller.rb
     class ProjectsController < ApplicationController
 
-      index, show, new, create
-      edit, update, & destroy
+      # index, show, new, create
+      # edit, update, & destroy
 
     end
 
@@ -134,30 +160,58 @@
 
 !SLIDE code
 
-## config/routes.rb ##
-
     @@@ ruby
+    # config/routes.rb
     Todo::Application.routes.draw do
       resources :projects
     ...
     end
 
 
-## app/models/project.rb ##
-
-    @@@ ruby
+    # app/models/project.rb
     class Project < ActiveRecord::Base
     end
 
-!SLIDE code
+!SLIDE
+
+## The root url ##
+
+!SLIDE commandline
+
+    $rm public/index.html
+
+!SLIDE
+
+    @@@ ruby
+    # config/routes.rb
+    
+    ...
+    # root :to => "welcome#index"
+    ...
+    
+    root :to => "projects#index"
+    
+
+!SLIDE
 
 ## Validations ##
 
+!SLIDE code
+
     @@@ ruby
     class Project < ActiveRecord::Base
+      # add these two lines
       validates_presence_of :name
       validates_uniqueness_of :name
     end
+
+!SLIDE bullets
+
+# Try to create a project #
+
+* Without name
+* or
+* With an already taken name
 
 !SLIDE commandline
 
@@ -167,32 +221,86 @@
     ...
     $ rake db:migrate
 
+!SLIDE
+
+# `has_many` & `belongs_to` #
 
 !SLIDE code
-
-# belongs_to & has_many #
 
     @@@ ruby
     # app/models/project.rb
     class Project < ActiveRecord::Base
       ...
+      # add this line:
       has_many :tasks
     end
 
     # app/models/task.rb
     class Task < ActiveRecord::Base
+      # add this line:
       belongs_to :project
     end
 
-!SLIDE code
+!SLIDE commandline
 
-# before_filter #
+# `has_many` #
+
+    $ rails c
+    Loading development environment (Rails 3.0.7)
+    $ ruby-1.9.2-p0 > p = Project.first
+     => #<Project id: 1, name: 'foo', created_at: nil, updated_at: nil>
+     
+    $ ruby-1.9.2-p0 > p.tasks
+     => []
+     
+    $ ruby-1.9.2-p0 > p.tasks.create(:name => "Clean dishes")
+     => #<Task id: 1, name: "Clean dishes", project_id: 1, done: false, ...
+     
+    $ ruby-1.9.2-p0 > p.tasks.create(:name => "Take dog out")
+     => #<Task id: 2, name: "Take dog out", project_id: 1, done: false, ...
+    
+    $ ruby-1.9.2-p0 > p.tasks.count
+     => 2
+
+!SLIDE commandline
+
+# `belongs_to` #
+
+    $ ruby-1.9.2-p0 > t = Tasks.find(2)
+     => #<Task id: 2, name: "Take dog out", project_id: 1, done: false, ...
+     
+    $ ruby-1.9.2-p0 > t.project_id
+     => 1
+     
+    $ ruby-1.9.2-p0 > t.project
+     => #<Project id: 1, name: 'foo', created_at: nil, updated_at: nil>
+    
+    $ ruby-1.9.2-p0 > t.project_id = 2
+     => 2
+    
+    $ ruby-1.9.2-p0 > t.save
+     => true
+    
+    $ ruby-1.9.2-p0 > t.project
+     => #<Project id: 2, name: 'bar', created_at: nil, updated_at: nil>
+
+!SLIDE
+
+# Adding a drop-down #
+
+!SLIDE center
+
+![dropdown](dropdown.png)
+
+!SLIDE code
 
     @@@ ruby
     # app/controllers/tasks_controller.rb
 
     class TasksController < ApplicationController
       before_filter :calculate_projects
+      
+      ...
 
       private
 
@@ -202,15 +310,15 @@
     end
 
 !SLIDE code
-
-# before_filter #
 
     @@@ ruby
     # app/controllers/tasks_controller.rb
 
     class TasksController < ApplicationController
       before_filter :calculate_projects,
-        :except => :index
+        :only => [:new, :create, :edit, :update]
+      
+      ...
 
       private
 
@@ -221,34 +329,111 @@
 
 !SLIDE code
 
-# Statuses #
+## app/views/tasks/_form.rb ##
 
     @@@ ruby
-    # app/views/tasks/_form.rb
 
-    <%= f.text_field :status %>
+    <%= f.text_field :project_id %>
 
     # change that to this VVVVVV
 
-    <%= f.collection_select :status, Task::STATUSES,
-        :to_s, :to_s, :include_blank => true
+    <%= f.collection_select :project_id, @projects,
+        :id, :name, :include_blank => true
     %>
+
+
+!SLIDE
+
+# Showing the tasks #
+
+!SLIDE code
+
+    # app/models/task.rb
+    
+    class Task < ActiveRecord::Base
+    
+    ...
+
+      def status
+        if self.done
+          return "done"
+        else
+          return "not done"
+        end
+      end
+    
+    end
+
+!SLIDE code
+
+    # app/models/task.rb
+    
+    class Task < ActiveRecord::Base
+    
+    ...
+
+      def status
+        return self.done ? "done" : "not done"
+      end
+    
+    end
+
+!SLIDE code
+
+    # app/models/task.rb
+    
+    class Task < ActiveRecord::Base
+    
+    ...
+
+      def status
+        return done ? "done" : "not done"
+      end
+    
+    end
+
+!SLIDE code
+
+    # app/models/task.rb
+    
+    class Task < ActiveRecord::Base
+    
+    ...
+
+      def status
+        done ? "done" : "not done"
+      end
+    
+    end
 
 
 !SLIDE code
 
-# Statuses (II) #
+    # app/views/projects/show.html.erb
+    
+    <p>
+      <b>Name:</b>
+      <%= @project.name %>
+    </p>
 
-    @@@ ruby
-    # app/views/tasks/_form.rb
+    <!-- add this: -->
+    <ul>
+      <% @project.tasks.each do |task| %>
+        <li><%= task.name %>: <%= task.status %></li>
+      <% end %>
+    </ul>
+    
+    ...
 
-    <%= f.text_field :status %>
 
-    # change that to this VVVVVV
 
-    <%= f.collection_select :status, Task::STATUSES,
-        :to_s, :to_s, :include_blank => true
-    %>
+
+
+
+
+
+
+
 
 
 

@@ -109,32 +109,6 @@
 
 !SLIDE
 
-# Convention: Question mark #
-
-## On methods returning only `true` or `false` ##
-
-    @@@ ruby
-    17.even?   # false
-    "".empty?  # true
-
-!SLIDE
-
-# Convention: Excl. mark #
-
-## On _state-modifying __versions__ of methods_ ##
-
-    @@@ ruby
-    str = "Hello"
-    other = str.upcase # doesn't modify str
-
-    puts(str)   # Hello
-    puts(other) # HELLO
-
-    str.upcase! # modifies str
-    puts(str)   # HELLO
-
-!SLIDE
-
 # _Everything_ is an object #
 
     @@@ ruby
@@ -154,7 +128,45 @@
 * The only "falsy" values
 * They are also objects
 * Everything else is "truthy"
-* `obj.nil?` method
+* `if(0), if("")` => truthy
+
+!SLIDE code
+
+    @@@ ruby
+    if x < 0
+      puts "negative"
+    elsif x == 0 # <- not "elseif"!
+      puts "zero"
+    else
+      puts "positive"
+    end
+
+!SLIDE
+
+# Convention: Question mark #
+
+## On methods returning only `true` or `false` ##
+
+    @@@ ruby
+    17.even?   # false
+    "".empty?  # true
+    obj.nil?   # true if obj == nil
+
+!SLIDE
+
+# Convention: Excl. mark #
+
+## On _state-modifying __versions__ of methods_ ##
+
+    @@@ ruby
+    str = "Hello"
+    other = str.upcase # doesn't modify str
+
+    puts(str)   # Hello
+    puts(other) # HELLO
+
+    str.upcase! # modifies str
+    puts(str)   # HELLO
 
 
 !SLIDE
@@ -238,6 +250,27 @@
 
     hash.each{ |k, val| puts("#{k} => #{val}") }
 
+!SLIDE
+
+# Hashes & parents #
+
+    @@@ ruby
+    class Foo
+      def my_method(x,y, options = {})
+      ...
+      end
+    end
+    
+    foo = Foo.new
+    
+    # equivalent:
+    foo.my_method(1, 2, {:color => :white})
+    foo.my_method 1, 2, {:color => :white}
+    foo.my_method(1, 2, :color => :white)
+    foo.my_method 1, 2, :color => :white
+    
+
+
 !SLIDE bullets
 
 # gems #
@@ -248,6 +281,12 @@
 !SLIDE commandline
 
     $ gem install gem_name
+
+!SLIDE
+
+# Questions? #
+
+
 
 
 
