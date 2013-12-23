@@ -8,7 +8,7 @@
 
 * "Ruby Version Manager"
 * Mac & Ubuntu
-* [https://rvm.beginrescueend.com/](https://rvm.beginrescueend.com/)
+* [https://rvm.io/](https://rvm.io/)
 * Follow instructions to install ruby 1.9.2
 
 !SLIDE bullets
